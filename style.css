@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: #121321;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    perspective: 100rem ;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    height: 24rem;
+    width: 24rem;
+    border-radius: 50%;
+    transform: translate(-150px, -100px);
+    background: linear-gradient(90deg, #9c27b0, #f3f5f5);
+    
+}
+
+section::after{
+    content: "";
+    position: absolute;
+    height: 24rem;
+    width: 24rem;
+    border-radius: 50%;
+    transform: translate(150px, 100px);
+    background: linear-gradient(90deg, #9c27b0, #f3f5f5);
+}
+
+.container {
+    position: relative;
+    width: 37.5rem;
+    height: 22.5rem;
+    z-index: 100;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+}
+
+.container:hover {
+    transform: rotateY(180deg);
+}
+
+.container .card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 2.5rem;
+    backdrop-filter: blur(25px);
+    border-radius: 2.5rem;
+    background-color: rgba(225, 225, 225, 0.1);
+    box-shadow: 0 2.5rem 4.5rem rgba(0, 0, 0 , 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backface-visibility: hidden;
+
+}
+
+.front-face header,
+.front-face .logo {
+    display: flex;
+    align-items: center;
+    
+}
+
+.front-face header {
+    justify-content: space-between;
+}
+
+.front-face .logo img {
+    width: 4.8rem;
+    margin-right: 1rem;
+}
+
+h5 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.front-face .chip {
+    width: 5rem;
+}
+
+.front-face .card-details { 
+    display: flex; 
+    margin-top: 4rem;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+h6 {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+h5.number {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+h5.name {
+    margin-top:  2rem;
+}
+
+.card.back-face {
+    border: none;
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+    transform: rotateY(180deg);
+}
+.card.back-face h6{
+    font-size: 0.8rem;
+}
+
+.card.back-face .magnetic-strip{
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    height: 4.5rem;
+    width: 100%;
+    background-color: #000;
+}
+
+.card.back-face .signature {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 8rem;
+    height: 4rem;
+    width: 85%;
+    border-radius: 6px;
+    background: repeating-linear-gradient(
+        #fff,
+        #fff 3px,
+        #efefef 0px,
+        #efefef 9px
+);
+
+}
+
+.signature  i{
+    color: #000;
+    font-size: 1.2rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.4rem;
+    background-color: #fff;
+    margin-right: -3rem;
+    z-index: -1;
+}   
+
+.card.back-face h5 {
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+    font-weight: 400;
+}
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 480px) {
+    html {
+        /* Slightly reduce base font size to scale all REM units down globally */
+        font-size: 50%; 
+    }
+
+    /* .container {
+        Reduce width so it doesn't hit the edges of the phone 
+        width: 90vw; 
+        height: 55vw; Keep the aspect ratio proportional to width 
+        max-width: 32rem; 
+        max-height: 19rem;
+    }*/
+
+    section::before, 
+    section::after {
+        /* Shrink the decorative background circles for mobile */
+        height: 18rem;
+        width: 18rem;
+    } */
+
+    .front-face .card-details {
+        margin-top: 2rem; /* Reduce spacing to fit smaller height */
+    }
+}
